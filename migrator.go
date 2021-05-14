@@ -81,7 +81,7 @@ func (m Migrator) CreateTable(models ...interface{}) error {
 		tx := m.DB.Session(new(gorm.Session))
 		if err := m.RunWithValue(model, func(stmt *gorm.Statement) (err error) {
 			var (
-				createTableSQL = "CREATE TABLE ? (%s %s %s) %s"
+				createTableSQL = "CREATE TABLE ? ON CLUSTER ck_cluster (%s %s %s) %s"
 				args           = []interface{}{clause.Table{Name: stmt.Table}}
 			)
 
