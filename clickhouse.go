@@ -242,7 +242,7 @@ func (dialector Dialector) DataTypeOf(field *schema.Field) string {
 				precision = fmt.Sprintf("(%d)", field.Precision)
 			}
 		}
-		return "DateTime64" + precision
+		return "DateTime" + precision
 	}
 
 	return string(field.DataType)
